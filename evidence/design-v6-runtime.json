@@ -1,0 +1,38 @@
+{
+  "purpose": "design review; automated input, not real driving validation",
+  "passed": true,
+  "stage": "app-flow-passed",
+  "automatedFormInput": true,
+  "apk_sha256": "28b9c384e6352112f7ca24a7b62abd1cea9aa6fec1401cdd4f2288bee8ec9ead",
+  "speech_handlers": "No activities found",
+  "native": {
+    "quickSelectionPassed": true,
+    "card": {
+      "source": "android-probe",
+      "count": 11,
+      "error": ""
+    },
+    "automatedFormInput": true,
+    "symptomDescriptionIsExample": true,
+    "vehicleSamplesInjected": false,
+    "savedCardBytes": 7152,
+    "passed": true,
+    "realVehicle": false
+  },
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720
+      },
+      {},
+      {}
+    ],
+    "format": {
+      "duration": "30.873256"
+    }
+  }
+}

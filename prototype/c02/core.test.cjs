@@ -1,0 +1,15 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');
+const {buildReport,fixture,reportHtml}=require('./core.js');
+test('event window contains only observed samples from 10–70 seconds',()=>{const r=buildReport(fixture(),40000);assert.equal(r.sampleCount,61);assert.equal(r.samples[0].tMs,10000);assert.equal(r.samples.at(-1).tMs,70000);assert.equal(r.signals.brakePressed.atEvent,true);});
+test('missing values remain missing, never zero',()=>{const r=buildReport(fixture('unavailable'),40000);assert.equal(r.signals.speedKph.atEvent,null);assert.equal(r.signals.speedKph.atStatus,'unavailable');});
+test('stale speed not silently carried across dropout',()=>{const r=buildReport(fixture('gap'),40000);assert.equal(r.signals.speedKph.atStatus,'stale');assert.equal(r.signals.speedKph.atEvent,null);assert.deepEqual(r.gaps,[{startMs:34000,endMs:46000}]);});
+test('permission denied and unsupported are distinct',()=>{const r=buildReport(fixture('denied'),40000);assert.equal(r.signals.steeringDeg.atStatus,'permission_denied');assert.equal(r.signals.rpm.atStatus,'unsupported');});
+test('cannot invent pre-session samples',()=>{const r=buildReport(fixture(),5000);assert.equal(r.truncatedBefore,true);assert.equal(r.capturedWindow.startMs,0);assert.equal(r.sampleCount,36);});
+test('early session end reports missing post-event window',()=>{const r=buildReport(fixture(),75000);assert.equal(r.truncatedAfter,true);assert.equal(r.capturedWindow.endMs,80000);});
+test('no samples means no manufactured signal',()=>{const s=fixture();s.samples=[];const r=buildReport(s,40000);assert.equal(r.signals.speedKph.atStatus,'not_collected');assert.equal(r.signals.speedKph.range,null);assert.equal(r.sampleCount,0);});
+test('input text cannot inject HTML',()=>{const r=buildReport(fixture(),40000,'<img src=x onerror=alert(1)>');const h=reportHtml(r);assert.ok(!h.includes('<img'));assert.ok(h.includes('&lt;img'));});
+test('event outside session rejected',()=>{for(const t of [-1,80001,NaN])assert.throws(()=>buildReport(fixture(),t));});
+test('out of order samples rejected',()=>{const s=fixture();s.samples.reverse();assert.throws(()=>buildReport(s,40000));});
+test('invalid signal value rejected',()=>{const s=fixture();s.samples[1].values.speedKph.value=NaN;assert.throws(()=>buildReport(s,40000));});
+test('export retains simulated provenance and manual attribution',()=>{const r=JSON.parse(JSON.stringify(buildReport(fixture(),40000,'합성 사례')));assert.equal(r.provenance,'synthetic');assert.equal(r.userNote.source,'user_entered');assert.equal(r.audio.status,'not_collected');assert.equal(r.diagnosis,null);});
+test('real data cannot be mistaken for synthetic fixture',()=>{const s=fixture();s.provenance='real';assert.throws(()=>buildReport(s,40000));});

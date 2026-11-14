@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="android.hardware.type.automotive" android:required="true" />
+    <uses-permission android:name="android.car.permission.CAR_SPEED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <queries><intent><action android:name="android.speech.action.RECOGNIZE_SPEECH" /></intent></queries>
+    <application android:label="C01 플랫폼 관측" android:theme="@android:style/Theme.Material.Light.NoActionBar"
+        android:allowBackup="false" android:supportsRtl="true">
+        <!-- Pleos 2.1 exposes car classes on BOOTCLASSPATH without a shared-library entry. -->
+        <uses-library android:name="android.car" android:required="false" />
+        <service android:name="example.c01.RecordingService" android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="User-started bounded vehicle speed diagnostic recording during navigation; no location or audio capture" />
+        </service>
+        <activity android:name="example.c01.ConsultationActivity" android:exported="false" />
+        <activity android:name=".ProbeActivity" android:exported="true">
+            <!-- No Distraction Optimization declaration: platform can block this activity. -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

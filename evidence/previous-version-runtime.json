@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "stage": "completed",
+  "apk_sha256": "dd16b4a2e30ffd477bb9577fde1a4f36737e5db447cffc601bc000e9234087fe",
+  "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+  "native": {
+    "backgroundFreshSamples": 65,
+    "browserDiagnostics": {
+      "source": "android-probe",
+      "count": 118,
+      "error": ""
+    },
+    "card": {
+      "source": "android-probe",
+      "count": 118,
+      "error": ""
+    },
+    "savedCardBytes": 32162,
+    "passed": true,
+    "realVehicle": false,
+    "nonzeroSpeedVerified": false
+  }
+}

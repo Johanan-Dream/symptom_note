@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": {
+    "classes.dex": true,
+    "assets/c02.html": true,
+    "assets/AstaSans.ttf": true,
+    "AndroidManifest.xml": true
+  },
+  "note": "Published sources rebuilt locally. APK signature differs because the rebuild uses a new private key. No emulator rerun is implied."
+}
