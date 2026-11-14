@@ -1,5 +1,5 @@
 {
-  "README.md": "ed7dac609b10027f556eb44f02bc813dc6920cb5b077ee491ea1abc59e1619a1",
+  "README.md": "9a2b86768ca57f9667d6fc1aa765d5c75d5da1fae55edc3e1105b27b4654cae1",
   ".gitignore": "ed602358ac7ee0a3d7b4f71481abd36fd8dc54d4ed53713921f37cca4c0ebe12",
   "evidence/design-v6-runtime.json": "c87a2a2f507203188def7f88fc3bbe6ea47c7ecaf89ea6f764a68d3fc8749090",
   "evidence/previous-version-runtime.json": "dde9bcfa844f52b317f3e29b9c14cfd9da4020f8739b223f44b00fe1c108c04b",
@@ -9,7 +9,6 @@
   "scripts/build-c02-demo-verification.py": "75ad10303ae46b14afbe792840442fb81f1fac8bcf781584c75a129b42f57c63",
   "scripts/build-c02-local.py": "57d0a4fc7876e9a7554f9d673eff6123d7b71418b858a11e90cb021ae1e6c7b5",
   "scripts/record-c02-design.py": "c9e53437aae0bf712f7805ec72d2c94e14abf897d61b224d3beb070d7ddaca43",
-  "downloads/C02-release-candidate.apk": "28b9c384e6352112f7ca24a7b62abd1cea9aa6fec1401cdd4f2288bee8ec9ead",
   "assets/fonts/source.json": "e28a2ccae04160a8176a25a78e094316082afccdf92c731fc9df0dfe05b0360e",
   "assets/fonts/OFL.txt": "aa8fd00297019c801c52c71167e60c2601a8d894aa315b3f23bbc6167ad06445",
   "assets/fonts/AstaSans.ttf": "f68410bf7d04deb992097758640145c72ddcf234070794237fc4994e18991c33",
@@ -29,5 +28,6 @@
   "prototype/c02/consultation.test.cjs": "013d5bdeec6de8f1a616049ad0cdacab48cdf91e00665fb5c2fb3f7f0e4cf5fc",
   "prototype/c02/app.js": "91c076a1e863f96311e4021c7ad21a20ff5127472ca3593f948b2002589a962b",
   "prototype/c02/input.test.cjs": "8f08b17b02bfe98fdc38080fa7cc995825f0d4076ed6394fa2cdbbee958a7986",
-  "prototype/c01/android-probe/VehicleProbe.java": "93e80d7371f99a2411e9981a06605cd2131e374d81d39c441d61bc4ed41db196"
+  "prototype/c01/android-probe/VehicleProbe.java": "93e80d7371f99a2411e9981a06605cd2131e374d81d39c441d61bc4ed41db196",
+  "apk/\uae40\ud61c\ubbf8_\uc99d\uc0c1\ub178\ud2b8_release.apk": "28b9c384e6352112f7ca24a7b62abd1cea9aa6fec1401cdd4f2288bee8ec9ead"
 }

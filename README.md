@@ -4,7 +4,7 @@
 
 ## 바로 확인하기
 
-- [검증한 APK 다운로드](https://github.com/Johanan-Dream/symptom_note/raw/refs/heads/main/downloads/C02-release-candidate.apk)
+- [검증한 APK 다운로드](https://github.com/Johanan-Dream/symptom_note/raw/refs/heads/main/apk/김혜미_증상노트_release.apk)
 - [구현·검증 범위](docs/verification.md)
 
 ## 사용 흐름
@@ -15,10 +15,10 @@
 
 ## 설치
 
-Pleos Connect v2.1.0 / Android 14(API 34) ARM64 에뮬레이터에서 확인했습니다. 일반 휴대폰용 앱이 아닙니다.
+Pleos Connect v2.1.0 / Android 14(API 34) ARM64 에뮬레이터에서 확인했습니다. 화면 설정은 2560×1440, 160 dpi이며 검증용 캡처·녹화는 1280×720으로 축소했습니다. 일반 휴대폰용 앱이 아닙니다.
 
 ```sh
-adb install -r downloads/C02-release-candidate.apk
+adb install -r apk/김혜미_증상노트_release.apk
 adb shell am start -n example.c02.note/example.c01.ProbeActivity
 ```
 
